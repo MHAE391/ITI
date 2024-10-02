@@ -1,0 +1,53 @@
+﻿@model Assignments.Areas.DayFour.Models.AddInstructorViewModel
+
+@{
+    ViewData["Title"] = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Enter Instructor Information</h4>
+<hr />
+<form asp-controller="Instructors" asp-area="DayFour" asp-action="New" class="align-content-center p-1">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Name" class="mt-4 form-label"></label>
+                <input type="text" class="form-control" asp-for="Name" placeholder="Enter Name">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>   
+            <div class="form-group">
+                <label asp-for="Address" class="mt-4 form-label"></label>
+                <input type="text" class="form-control" asp-for="Address" placeholder="Enter Address">
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="mt-4 form-label"></label>
+                <input type="number" class="form-control" asp-for="Image" placeholder="Enter Image">
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="mt-4 form-label"></label>
+                <input type="number" class="form-control" asp-for="Salary" placeholder="Enter Salary">
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartmentId" class="mt-4 form-label"></label>
+                <select class="form-select" asp-for="DepartmentId" asp-items="Model.Departments">
+                    <option>Department</option>
+                </select> 
+                <span asp-validation-for="DepartmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CourseId" class="mt-4 form-label"></label>
+                <select class="form-select" asp-for="CourseId" asp-items="Model.Courses">
+                    <option>Course</option>
+                </select>
+                <span asp-validation-for="CourseId" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-light btn-outline-success text-black mt-4">Save</button>
+        </div>
+    </div>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,46 @@
+﻿@model Assignments.Areas.DayOne.Models.Student
+
+@{
+    ViewData["Title"] = "Student Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h1>@ViewData["Title"]</h1>
+    <div class="card">
+        <div class="card-header">
+            <h6>Student Information</h6>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Id)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Id)
+                </dd>
+
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Image)
+                </dt>
+                <dd class="col-sm-9">
+                    <img class="justify-content-center" src="@Url.Content("~/images/" + Model.Image + ".jpeg")" alt="@Model.Name" style="max-width: 100%; height: auto;" />
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

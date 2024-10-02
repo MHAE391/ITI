@@ -1,0 +1,58 @@
+﻿@model Assignments.Areas.DayThree.Data.TraineeDetailsViewModel
+
+@{
+    ViewData["Title"] = "Trainee Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Details</h1>
+<div>
+    <h4>Trainee</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class="col-sm-9">
+            <img class="justify-content-center" src="@Url.Content("~/images/" + Model.Image + ".jpeg")" alt="@Model.Name" style="max-width: 100%; height: auto;" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+    </dl>
+    <h3 class="align-middle">Courses Results</h3>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in Model.Courses)
+            {
+                <tr style="background-color: @course.Color ">
+                    <td class="fw-bold">@course.Course</td>
+                    <td class="fw-bold">@course.StudentResult</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
